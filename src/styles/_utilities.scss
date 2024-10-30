@@ -5,8 +5,8 @@
 }
 
 @mixin grid-container($columns) {
-    display: grid;
-    grid-template-columns: repeat($columns, auto);
-    justify-items: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat($columns, auto);
+  justify-items: center;
+  align-items: center;
 }
