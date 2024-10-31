@@ -20,14 +20,16 @@ export class InfosComponent {
   @Input() public forecast!: string;
   @Input() public lastUpdate!: string;
 
+  public authenticated: boolean = false;
+
   public dam: LucideIconData = Dam;
   public chevronDown: LucideIconData = ChevronDown;
   public history: LucideIconData = History;
 
-  public height: number = 175;
-  public opacity: number = 1;
-  public details: boolean = true;
-  public isOpened: boolean = true;
+  public height: number = 60;
+  public opacity: number = 0;
+  public details: boolean = false;
+  public isOpened: boolean = false;
 
   public toogleHeight(): void {
     this.isOpened = !this.isOpened;

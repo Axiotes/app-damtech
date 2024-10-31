@@ -10,7 +10,9 @@
       <p>{{ city }}/{{ state }}</p>
     </div>
     <div class="infos__header__status">
-      <p>Status: <span>{{ status }}</span></p>
+      <p>
+        Status: <span>{{ status }}</span>
+      </p>
     </div>
     <i-lucide
       [img]="chevronDown"
@@ -18,15 +20,24 @@
       [ngClass]="{ rotate: !isOpened }"
       (click)="toogleHeight()"
     ></i-lucide>
+    <button *ngIf="authenticated">+</button>
   </div>
   <div class="infos__details" [ngStyle]="{ opacity: opacity }" *ngIf="details">
     <div class="infos__details-dam">
-      <p>Nível da água: <span>{{ waterLevel }}</span></p>
-      <p>Estrutura: <span>{{ structure }}</span></p>
-      <p>Previsão climática Local: <span>{{ forecast }}</span></p>
+      <p>
+        Nível da água: <span>{{ waterLevel }}</span>
+      </p>
+      <p>
+        Estrutura: <span>{{ structure }}</span>
+      </p>
+      <p>
+        Previsão climática Local: <span>{{ forecast }}</span>
+      </p>
     </div>
     <div class="infos__details-date">
-      <p>Última visita ao local: <span>{{ lastUpdate }}</span></p>
+      <p>
+        Última visita ao local: <span>{{ lastUpdate }}</span>
+      </p>
       <button>
         <i-lucide
           [img]="history"
