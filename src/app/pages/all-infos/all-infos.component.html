@@ -1,6 +1,13 @@
 <div class="all-infos">
-    <app-infos></app-infos>
-    <app-infos></app-infos>
-    <app-infos></app-infos>
-    <app-infos></app-infos>
+  <app-infos
+    *ngFor="let info of infos"
+    [name]="info.nome_barragens"
+    [city]="info.cidade"
+    [state]="info.estado"
+    [status]="info.status_barragem"
+    [waterLevel]="info.nivel_agua"
+    [structure]="info.estrutura"
+    [forecast]="info.previsao_climatica"
+    [lastUpdate]="info.data_visita"
+  ></app-infos>
 </div>
