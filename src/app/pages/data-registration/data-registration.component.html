@@ -10,6 +10,7 @@
       [icon]="fields.icon"
       [title]="fields.title"
       [options]="fields.options"
+      (selectedOption)="receiveSelectedOption($event)"
     ></app-dropdown>
   </div>
   <div class="data__observation">
@@ -17,7 +18,7 @@
     <textarea placeholder="Observações..."></textarea>
   </div>
   <div class="data__buttons">
-    <button class="data__buttons-send">
+    <button class="data__buttons-send" (click)="registerVisit()">
       Enviar
       <i-lucide
         [img]="send"

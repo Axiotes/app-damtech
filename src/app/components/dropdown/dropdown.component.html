@@ -14,7 +14,11 @@
       class="dropdown__header-arrow"
     ></i-lucide>
   </div>
-  <button *ngFor="let option of options" class="dropdown__options">
+  <button
+    *ngFor="let option of options"
+    (click)="sendSelectedOption(option, title)"
+    class="dropdown__options"
+  >
     {{ option }}
   </button>
 </div>
