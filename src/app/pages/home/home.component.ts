@@ -6,7 +6,6 @@ import {
   SendHorizontal,
 } from 'lucide-angular';
 import { LucideIconData } from 'lucide-angular/icons/types';
-import { InfosComponent } from '../../components/infos/infos.component';
 import { DescriptionHome } from '../../../types/description-home.type';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { NgIf } from '@angular/common';
@@ -14,7 +13,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [LucideAngularModule, InfosComponent, NgIf, RouterOutlet],
+  imports: [LucideAngularModule, NgIf, RouterOutlet],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
