@@ -32,6 +32,23 @@
         font-size: 20px;
         color: $off-white;
       }
+
+      span {
+        @include flex-center;
+        gap: 5px;
+
+        p {
+          font-size: 11px;
+          color: $off-white;
+          font-weight: 300;
+        }
+      }
+
+      &-icon {
+        color: $off-white;
+        height: 15px;
+        width: 15px;
+      }
     }
 
     &__description {
