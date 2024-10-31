@@ -5,11 +5,12 @@ import { Dam } from '../../../types/dam.type';
 import { Visit } from '../../../types/visit.type';
 import { Infos } from '../../../types/infos.type';
 import { NgFor } from '@angular/common';
+import { DropdownComponent } from "../../components/dropdown/dropdown.component";
 
 @Component({
   selector: 'app-all-infos',
   standalone: true,
-  imports: [InfosComponent, NgFor],
+  imports: [InfosComponent, NgFor, DropdownComponent],
   templateUrl: './all-infos.component.html',
   styleUrl: './all-infos.component.scss',
 })
