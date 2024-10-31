@@ -10,7 +10,7 @@
   flex-direction: column;
   transition: 0.5s;
   overflow: hidden;
-
+  
   &__header {
     @include grid-container(3);
     width: 100%;

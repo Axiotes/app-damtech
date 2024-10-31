@@ -1,5 +1,5 @@
 <div class="infos" [ngStyle]="{ height: height + 'px' }">
-  <div class="infos__header" [ngStyle]="{ 'margin-top': margin + 'px' }">
+  <div class="infos__header">
     <div class="infos__header__dam">
       <i-lucide
         [img]="dam"
@@ -15,11 +15,11 @@
     <i-lucide
       [img]="chevronDown"
       class="infos__header-icon"
-      [ngClass]="{ 'rotate': !isOpened}"
+      [ngClass]="{ rotate: !isOpened }"
       (click)="toogleHeight()"
     ></i-lucide>
   </div>
-  <div class="infos__details" [ngStyle]="{ opacity: opacity }">
+  <div class="infos__details" [ngStyle]="{ opacity: opacity }" *ngIf="details">
     <div class="infos__details-dam">
       <p>Nível da água: <span>Alta</span></p>
       <p>Estrutura: <span>Ok</span></p>

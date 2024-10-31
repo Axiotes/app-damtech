@@ -17,9 +17,8 @@ export class InfosComponent {
 
   public height: number = 175;
   public opacity: number = 1;
-  public margin: number = 0;
+  public details: boolean = true;
   public isOpened: boolean = true;
-
 
   public toogleHeight(): void {
     this.isOpened = !this.isOpened;
@@ -27,13 +26,15 @@ export class InfosComponent {
     if (this.isOpened) {
       this.height = 175;
       this.opacity = 1;
-      this.margin = 0;
+      this.details = true;
 
       return;
     }
 
     this.height = 60;
     this.opacity = 0;
-    this.margin = 20;
+    setTimeout(() => {
+      this.details = false;
+    }, 200);
   }
 }
