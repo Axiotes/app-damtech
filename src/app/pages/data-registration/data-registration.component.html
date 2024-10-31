@@ -1,1 +1,19 @@
-<p>data-registration works!</p>
+<div class="data">
+  <div class="data__header">
+    <i-lucide [img]="dam"></i-lucide>
+    <h2>Barragem de Jucazinho</h2>
+    <p>Surubin/PE</p>
+  </div>
+  <div class="data__options">
+    <app-dropdown
+      *ngFor="let fields of dropdownFields"
+      [icon]="fields.icon"
+      [title]="fields.title"
+      [options]="fields.options"
+    ></app-dropdown>
+  </div>
+  <div class="data__observation">
+    <i-lucide [img]="mapPin"></i-lucide>
+    <textarea placeholder="Observações..."></textarea>
+  </div>
+</div>
