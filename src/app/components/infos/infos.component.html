@@ -6,11 +6,11 @@
         [size]="20"
         class="infos__header__dam-icon"
       ></i-lucide>
-      <h1>Barragem de Jucazinho</h1>
-      <p>Surubim/PE</p>
+      <h1>{{ name }}</h1>
+      <p>{{ city }}/{{ state }}</p>
     </div>
     <div class="infos__header__status">
-      <p>Status: <span>OK</span></p>
+      <p>Status: <span>{{ status }}</span></p>
     </div>
     <i-lucide
       [img]="chevronDown"
@@ -21,12 +21,12 @@
   </div>
   <div class="infos__details" [ngStyle]="{ opacity: opacity }" *ngIf="details">
     <div class="infos__details-dam">
-      <p>Nível da água: <span>Alta</span></p>
-      <p>Estrutura: <span>Ok</span></p>
-      <p>Previsão climática Local: <span>Chuvoso</span></p>
+      <p>Nível da água: <span>{{ waterLevel }}</span></p>
+      <p>Estrutura: <span>{{ structure }}</span></p>
+      <p>Previsão climática Local: <span>{{ forecast }}</span></p>
     </div>
     <div class="infos__details-date">
-      <p>Última visita ao local: <span>21/09/2024</span></p>
+      <p>Última visita ao local: <span>{{ lastUpdate }}</span></p>
       <button>
         <i-lucide
           [img]="history"

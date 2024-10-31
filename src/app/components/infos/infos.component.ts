@@ -1,5 +1,5 @@
 import { NgClass, NgIf, NgStyle } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ChevronDown, Dam, History, LucideAngularModule } from 'lucide-angular';
 import { LucideIconData } from 'lucide-angular/icons/types';
 
@@ -11,6 +11,15 @@ import { LucideIconData } from 'lucide-angular/icons/types';
   styleUrl: './infos.component.scss',
 })
 export class InfosComponent {
+  @Input() public name!: string;
+  @Input() public city!: string;
+  @Input() public state!: string;
+  @Input() public status!: string;
+  @Input() public waterLevel!: string;
+  @Input() public structure!: string;
+  @Input() public forecast!: string;
+  @Input() public lastUpdate!: string;
+
   public dam: LucideIconData = Dam;
   public chevronDown: LucideIconData = ChevronDown;
   public history: LucideIconData = History;
