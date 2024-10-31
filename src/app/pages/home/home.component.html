@@ -1,0 +1,32 @@
+<main class="home">
+  <section class="home__presentation">
+    <div class="home__presentation__logo">
+      <img src="/assets/logo-green.png" />
+      <h1>DamTech</h1>
+    </div>
+    <div class="home__presentation__description">
+      <h2>Seje bem vindo ao DamTech!</h2>
+      <p>
+        Com o propósito de garantir sua segurança e manter você informados sobre
+        barragens em sua região.
+      </p>
+      <h3>Insira sua cidade e/ou estado:</h3>
+    </div>
+    <div class="home__presentation__location">
+      <i-lucide
+        [img]="mapPin"
+        class="home__presentation__location-icon"
+      ></i-lucide>
+      <input type="text" [placeholder]="'Ex: Recife, PE'" />
+      <button class="home__presentation__location-btn">
+        <i-lucide
+          [img]="sendHorizontal"
+          class="home__presentation__location-btn--icon"
+        ></i-lucide>
+      </button>
+    </div>
+  </section>
+  <section class="home__route">
+    <app-infos></app-infos>
+  </section>
+</main>
