@@ -1,0 +1,143 @@
+@import "../../../styles/variables";
+@import "../../../styles/utilities";
+
+.infos {
+  width: 525px;
+  background-color: $dark-black;
+  border-radius: 30px;
+  padding: 20px;
+  @include flex-center;
+  flex-direction: column;
+  transition: 0.5s;
+  overflow: hidden;
+
+  &__header {
+    @include flex-center;
+    justify-content: space-around;
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    transition: 0.5s;
+
+    &__dam {
+      @include flex-center;
+      gap: 5px;
+
+      &-icon {
+        color: $light-green;
+        width: 20px;
+        height: 20px;
+      }
+
+      h1 {
+        color: white;
+        font-weight: 500;
+        font-size: 12px;
+      }
+
+      p {
+        color: $off-white;
+        font-size: 10px;
+        font-weight: 300;
+        margin-top: 2px;
+      }
+    }
+
+    &__status {
+      p {
+        color: white;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      span {
+        color: $light-green;
+        font-size: 10px;
+        font-weight: 300;
+      }
+    }
+
+    &-icon {
+      color: white;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+
+    button {
+      @include flex-center;
+      background-color: $off-white;
+      width: 34px;
+      height: 26px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 25px;
+      color: black;
+    }
+  }
+
+  &__details {
+    @include flex-center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+    transition: 0.5s;
+
+    &-dam {
+      @include flex-center;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      p {
+        font-size: 12px;
+        font-weight: 300;
+        color: white;
+      }
+
+      span {
+        font-size: 12px;
+        font-weight: 500;
+        color: $light-green;
+      }
+    }
+
+    &-date {
+      @include flex-center;
+      position: relative;
+      width: 100%;
+      margin-top: 10px;
+
+      p {
+        font-size: 12px;
+        font-weight: 300;
+        color: white;
+      }
+
+      span {
+        font-size: 12px;
+        font-weight: 500;
+        color: $light-green;
+      }
+
+      button {
+        @include flex-center;
+        background-color: $off-white;
+        width: 34px;
+        height: 26px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        padding-top: 3px;
+        position: absolute;
+        right: 25px;
+      }
+    }
+  }
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
