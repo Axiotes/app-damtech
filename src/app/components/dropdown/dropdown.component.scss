@@ -51,5 +51,10 @@
     font-size: 12px;
     background-color: transparent;
     cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      border: solid 1px $light-green;
+    }
   }
 }

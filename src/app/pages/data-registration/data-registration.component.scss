@@ -1,0 +1,115 @@
+@import "../../../styles/utilities";
+@import "../../../styles/variables";
+
+.data {
+  width: 100%;
+  height: 100%;
+  @include flex-center;
+  flex-direction: column;
+  gap: 20px;
+
+  &__header {
+    @include flex-center;
+    gap: 5px;
+
+    &-icon {
+      color: $light-green;
+    }
+
+    h2 {
+      font-size: 12px;
+      font-weight: 500;
+      color: white;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 10px;
+      color: $off-white;
+      margin-top: 2px;
+    }
+  }
+
+  &__options {
+    @include grid-container(3);
+    gap: 10px;
+  }
+
+  &__observation {
+    width: 100%;
+    height: 100%;
+    @include flex-center;
+    position: relative;
+
+    &-icon {
+      color: $light-green;
+      position: absolute;
+      left: 10px;
+      top: 15px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100%;
+      min-height: 180px;
+      padding: 20px 40px;
+      background-color: transparent;
+      color: white;
+      outline: none;
+      border-radius: 30px;
+      border: 1px solid $medium-black;
+    }
+  }
+
+  &__buttons {
+    @include grid-container(2);
+    gap: 10px;
+
+    &-send {
+      @include flex-center;
+      border: none;
+      background-color: $medium-black;
+      border-radius: 30px;
+      color: $off-white;
+      width: 95px;
+      height: 30px;
+      gap: 5px;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &-icon {
+        color: $light-green;
+        width: 14px;
+        height: 14px;
+        transition: 0.5s;
+      }
+
+      &:hover {
+        background-color: $light-green;
+        color: $dark-black;
+
+        .data__buttons-send-icon {
+            color: $dark-black !important;
+        }
+      }
+    }
+
+    &-cancel {
+      @include flex-center;
+      border: solid 1px $medium-black;
+      background-color: transparent;
+      border-radius: 30px;
+      color: $off-white;
+      width: 95px;
+      height: 30px;
+      gap: 5px;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: $off-white;
+        color: $dark-black;
+      }
+    }
+  }
+}

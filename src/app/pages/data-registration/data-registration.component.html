@@ -1,6 +1,6 @@
 <div class="data">
   <div class="data__header">
-    <i-lucide [img]="dam"></i-lucide>
+    <i-lucide [img]="dam" class="data__header-icon"></i-lucide>
     <h2>Barragem de Jucazinho</h2>
     <p>Surubin/PE</p>
   </div>
@@ -13,7 +13,21 @@
     ></app-dropdown>
   </div>
   <div class="data__observation">
-    <i-lucide [img]="mapPin"></i-lucide>
+    <i-lucide [img]="mapPin" class="data__observation-icon"></i-lucide>
     <textarea placeholder="Observações..."></textarea>
+  </div>
+  <div class="data__buttons">
+    <button class="data__buttons-send">
+      Enviar
+      <i-lucide
+        [img]="send"
+        [size]="14"
+        class="data__buttons-send-icon"
+      ></i-lucide>
+    </button>
+    <button class="data__buttons-cancel">
+      Cancelar
+      <span>X</span>
+    </button>
   </div>
 </div>
