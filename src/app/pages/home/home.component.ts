@@ -8,13 +8,13 @@ import {
 import { LucideIconData } from 'lucide-angular/icons/types';
 import { InfosComponent } from '../../components/infos/infos.component';
 import { DescriptionHome } from '../../../types/description-home.type';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [LucideAngularModule, InfosComponent, NgIf],
+  imports: [LucideAngularModule, InfosComponent, NgIf, RouterOutlet],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
