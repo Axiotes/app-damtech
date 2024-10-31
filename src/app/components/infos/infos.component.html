@@ -1,16 +1,25 @@
-<div class="infos">
-  <div class="infos__header">
+<div class="infos" [ngStyle]="{ height: height + 'px' }">
+  <div class="infos__header" [ngStyle]="{ 'margin-top': margin + 'px' }">
     <div class="infos__header__dam">
-      <i-lucide [img]="dam" [size]="20" class="infos__header__dam-icon"></i-lucide>
+      <i-lucide
+        [img]="dam"
+        [size]="20"
+        class="infos__header__dam-icon"
+      ></i-lucide>
       <h1>Barragem de Jucazinho</h1>
       <p>Surubim/PE</p>
     </div>
     <div class="infos__header__status">
       <p>Status: <span>OK</span></p>
     </div>
-    <i-lucide [img]="chevronDown" class="infos__header-icon"></i-lucide>
+    <i-lucide
+      [img]="chevronDown"
+      class="infos__header-icon"
+      [ngClass]="{ 'rotate': !isOpened}"
+      (click)="toogleHeight()"
+    ></i-lucide>
   </div>
-  <div class="infos__details">
+  <div class="infos__details" [ngStyle]="{ opacity: opacity }">
     <div class="infos__details-dam">
       <p>Nível da água: <span>Alta</span></p>
       <p>Estrutura: <span>Ok</span></p>
@@ -19,7 +28,11 @@
     <div class="infos__details-date">
       <p>Última visita ao local: <span>21/09/2024</span></p>
       <button>
-        <i-lucide [img]="history" [size]="20" class="infos__details-date--icon"></i-lucide>
+        <i-lucide
+          [img]="history"
+          [size]="20"
+          class="infos__details-date--icon"
+        ></i-lucide>
       </button>
     </div>
   </div>
