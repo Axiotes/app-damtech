@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Dam, LucideAngularModule, MoveLeft } from 'lucide-angular';
 import { LucideIconData } from 'lucide-angular/icons/types';
 import { CardHistoryComponent } from '../../components/card-history/card-history.component';
@@ -12,7 +12,7 @@ import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-history',
   standalone: true,
-  imports: [LucideAngularModule, CardHistoryComponent, NgFor],
+  imports: [LucideAngularModule, CardHistoryComponent, NgFor, RouterLink],
   templateUrl: './history.component.html',
   styleUrl: './history.component.scss',
 })
@@ -83,7 +83,5 @@ export class HistoryComponent implements OnInit {
         this.infos.push(info);
       }
     });
-
-    console.log(this.infos);
   }
 }
