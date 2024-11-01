@@ -6,11 +6,11 @@
         [size]="20"
         class="card__details-day--icon"
       ></i-lucide>
-      <p>Data da visita: <span>21/09/2021</span></p>
+      <p>Data da visita: <span>{{ date }}</span></p>
     </div>
-    <p>Status: <span>Ativo</span></p>
-    <p>Nível da água: <span>Moderado</span></p>
-    <p>Estrutura: <span>Bom estado</span></p>
-    <p>Previsão climática Local: <span>Seco</span></p>
+    <p>Status: <span>{{ status }}</span></p>
+    <p>Nível da água: <span>{{ waterLevel }}</span></p>
+    <p>Estrutura: <span>{{ structure }}</span></p>
+    <p>Previsão climática Local: <span>{{ forecast }}</span></p>
   </div>
 </div>

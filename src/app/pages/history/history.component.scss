@@ -26,6 +26,8 @@
     &-icon {
       position: absolute;
       color: $light-green;
+      top: 10px;
+      left: 0;
     }
 
     &-logo {
@@ -52,8 +54,21 @@
     height: 700px;
     border-radius: 30px;
     border: solid 1px $medium-black;
-    gap: 20px;
     padding: 0 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-track {
+      display: none;
+    }
 
     &__name {
       width: 100%;
@@ -76,6 +91,27 @@
         font-size: 10px;
         color: $off-white;
         margin-top: 2px;
+      }
+    }
+
+    &__cards {
+      @include flex-center;
+      flex-direction: column;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      gap: 20px;
+      margin-bottom: 20px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        display: none;
+      }
+
+      &::-webkit-scrollbar-track {
+        display: none;
       }
     }
   }
