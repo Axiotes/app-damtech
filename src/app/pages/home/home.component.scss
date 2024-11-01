@@ -13,7 +13,9 @@
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  @include grid-container(2);
+  @include flex-center;
+  flex-direction: column;
+  gap: 30px;
   padding: 0 5%;
 
   &__presentation {

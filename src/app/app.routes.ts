@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AllInfosComponent } from './pages/all-infos/all-infos.component';
 import { DataRegistrationComponent } from './pages/data-registration/data-registration.component';
+import { HistoryComponent } from './pages/history/history.component';
 
 export const routes: Routes = [
   {
@@ -17,9 +18,16 @@ export const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'infos', component: AllInfosComponent },
-      { path: 'data-registration/:id_dam', component: DataRegistrationComponent },
+      {
+        path: 'data-registration/:id_dam',
+        component: DataRegistrationComponent,
+      },
       { path: '', pathMatch: 'full', redirectTo: '/home/admin-users/infos' },
     ],
+  },
+  {
+    path: 'history/:id_dam',
+    component: HistoryComponent,
   },
   { path: '', pathMatch: 'full', redirectTo: '/home/all-users/infos' },
   { path: '**', redirectTo: '/home/all-users/infos' },

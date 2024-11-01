@@ -1,27 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { InfosComponent } from '../../components/infos/infos.component';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Dam, LucideAngularModule, MoveLeft } from 'lucide-angular';
+import { LucideIconData } from 'lucide-angular/icons/types';
+import { CardHistoryComponent } from '../../components/card-history/card-history.component';
 import { ApiDamService } from '../../service/api-dam.service';
-import { DamType } from '../../../types/dam.type';
 import { Visit } from '../../../types/visit.type';
 import { Infos } from '../../../types/infos.type';
+import { DamType } from '../../../types/dam.type';
 import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-all-infos',
+  selector: 'app-history',
   standalone: true,
-  imports: [InfosComponent, NgFor],
-  templateUrl: './all-infos.component.html',
-  styleUrl: './all-infos.component.scss',
+  imports: [LucideAngularModule, CardHistoryComponent, NgFor, RouterLink],
+  templateUrl: './history.component.html',
+  styleUrl: './history.component.scss',
 })
-export class AllInfosComponent implements OnInit {
+export class HistoryComponent implements OnInit {
+  public idDam!: number;
   public allDams!: DamType[];
   public allVisits!: Visit[];
   public allInfos: Infos[] = [];
-  public infos!: Infos[];
+  public infos: Infos[] = [];
 
-  constructor(private apiDamService: ApiDamService) {}
+  public moveLeft: LucideIconData = MoveLeft;
+  public dam: LucideIconData = Dam;
+
+  constructor(
+    private route: ActivatedRoute,
+    private apiDamService: ApiDamService
+  ) {}
 
   ngOnInit() {
+    this.route.params.subscribe((params) => {
+      this.idDam = params['id_dam'];
+    });
+
     this.apiDamService.getDams().subscribe({
       next: (res) => {
         this.allDams = res;
@@ -64,16 +78,10 @@ export class AllInfosComponent implements OnInit {
       });
     });
 
-    this.infos = Object.values(
-      this.allInfos.reduce((acc, info) => {
-        if (
-          !acc[info.id_barragem] ||
-          info.id_visita > acc[info.id_barragem].id_visita
-        ) {
-          acc[info.id_barragem] = info;
-        }
-        return acc;
-      }, {} as { [key: number]: Infos })
-    );
+    this.allInfos.forEach((info) => {
+      if (info.id_barragem == this.idDam) {
+        this.infos.push(info);
+      }
+    });
   }
 }

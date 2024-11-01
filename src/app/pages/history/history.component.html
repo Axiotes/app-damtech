@@ -1,0 +1,33 @@
+<main class="history">
+  <header class="history__header">
+    <i-lucide
+      [img]="moveLeft"
+      class="history__header-icon"
+      routerLink="/home/all-users/infos"
+    ></i-lucide>
+
+    <div class="history__header-logo">
+      <img src="/assets/logo-green.png" />
+      <h1>DamTech</h1>
+    </div>
+
+    <h2>Histórico de visitas</h2>
+  </header>
+  <div class="history__dam">
+    <div class="history__dam__name">
+      <i-lucide [img]="dam" class="history__dam__name-icon"></i-lucide>
+      <h3>Barragem de Jucazinho</h3>
+      <p>Surubin/PE</p>
+    </div>
+    <div class="history__dam__cards">
+      <app-card-history
+        *ngFor="let info of infos"
+        [date]="info.data_visita"
+        [status]="info.status_barragem"
+        [waterLevel]="info.nivel_agua"
+        [structure]="info.estrutura"
+        [forecast]="info.previsao_climatica"
+      ></app-card-history>
+    </div>
+  </div>
+</main>
