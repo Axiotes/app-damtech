@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Dam } from '../../types/dam.type';
 import { Visit } from '../../types/visit.type';
+import { NewVisit } from '../../types/new-visit.type';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +18,9 @@ export class ApiDamService {
 
   public getVisits() {
     return this.http.get<Visit[]>(`${this.baseUrl}/visitas/todas`);
+  }
+
+  public postNewVisit(newVisit: NewVisit) {
+    return this.http.post(`${this.baseUrl}/visitas`, newVisit);
   }
 }

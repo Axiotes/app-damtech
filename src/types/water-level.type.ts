@@ -1,1 +1,1 @@
-export type WaterLevel = "Baixo" | "Moderado" | "Alto" | "Critico";
+export type WaterLevel = "baixo" | "moderado" | "alto" | "critico";

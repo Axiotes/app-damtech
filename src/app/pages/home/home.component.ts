@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   public description!: DescriptionHome;
   public currentUser: string = 'all-users';
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.url.subscribe((url) => {

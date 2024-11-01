@@ -1,0 +1,25 @@
+<div class="dropdown">
+  <div class="dropdown__header">
+    <div class="dropdown__header-name">
+      <i-lucide
+        [img]="icon"
+        [size]="18"
+        class="dropdown__header-name--icon"
+      ></i-lucide>
+      <h3>{{ title }}</h3>
+    </div>
+    <i-lucide
+      [img]="chevronDown"
+      [size]="22"
+      class="dropdown__header-arrow"
+    ></i-lucide>
+  </div>
+  <button
+  *ngFor="let all of allOptions"
+    (click)="sendSelectedOption(all.option, title)"
+    [ngClass]="{ selected: all.isSelected }"
+    class="dropdown__options"
+  >
+    {{ all.option }}
+  </button>
+</div>

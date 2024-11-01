@@ -1,0 +1,34 @@
+<div class="data">
+  <div class="data__header">
+    <i-lucide [img]="dam" class="data__header-icon"></i-lucide>
+    <h2>Barragem de Jucazinho</h2>
+    <p>Surubin/PE</p>
+  </div>
+  <div class="data__options">
+    <app-dropdown
+      *ngFor="let fields of dropdownFields"
+      [icon]="fields.icon"
+      [title]="fields.title"
+      [options]="fields.options"
+      (selectedOption)="receiveSelectedOption($event)"
+    ></app-dropdown>
+  </div>
+  <div class="data__observation">
+    <i-lucide [img]="mapPin" class="data__observation-icon"></i-lucide>
+    <textarea placeholder="Observações..."></textarea>
+  </div>
+  <div class="data__buttons">
+    <button class="data__buttons-send" (click)="registerVisit()">
+      Enviar
+      <i-lucide
+        [img]="send"
+        [size]="14"
+        class="data__buttons-send-icon"
+      ></i-lucide>
+    </button>
+    <button class="data__buttons-cancel" routerLink="/home/admin-users/infos">
+      Cancelar
+      <span>X</span>
+    </button>
+  </div>
+</div>

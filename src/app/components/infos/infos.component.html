@@ -20,7 +20,12 @@
       [ngClass]="{ rotate: !isOpened }"
       (click)="toogleHeight()"
     ></i-lucide>
-    <button *ngIf="authenticated">+</button>
+    <button
+      *ngIf="authenticated"
+      routerLink="/home/admin-users/data-registration/{{ idDam }}"
+    >
+      +
+    </button>
   </div>
   <div class="infos__details" [ngStyle]="{ opacity: opacity }" *ngIf="details">
     <div class="infos__details-dam">
