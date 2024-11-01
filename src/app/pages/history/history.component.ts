@@ -22,6 +22,9 @@ export class HistoryComponent implements OnInit {
   public allVisits!: Visit[];
   public allInfos: Infos[] = [];
   public infos: Infos[] = [];
+  public damName!: string;
+  public damCity!: string;
+  public damState!: string;
 
   public moveLeft: LucideIconData = MoveLeft;
   public dam: LucideIconData = Dam;
@@ -82,6 +85,12 @@ export class HistoryComponent implements OnInit {
       if (info.id_barragem == this.idDam) {
         this.infos.push(info);
       }
+    });
+
+    this.infos.map((info) => {
+      this.damName = info.nome_barragens;
+      this.damCity = info.cidade;
+      this.damState = info.estado;
     });
   }
 }

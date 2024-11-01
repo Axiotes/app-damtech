@@ -97,7 +97,7 @@
 
     &__cards {
       @include flex-center;
-      flex-direction: column;
+      flex-direction: column-reverse;
       overflow-y: scroll;
       overflow-x: hidden;
       gap: 20px;
