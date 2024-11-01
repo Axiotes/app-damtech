@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Dam } from '../../types/dam.type';
+import { DamType } from '../../types/dam.type';
 import { Visit } from '../../types/visit.type';
 import { NewVisit } from '../../types/new-visit.type';
 
@@ -13,7 +13,7 @@ export class ApiDamService {
   constructor(private http: HttpClient) {}
 
   public getDams() {
-    return this.http.get<Dam[]>(`${this.baseUrl}/barragens/todas`);
+    return this.http.get<DamType[]>(`${this.baseUrl}/barragens/todas`);
   }
 
   public getVisits() {

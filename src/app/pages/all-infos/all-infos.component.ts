@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InfosComponent } from '../../components/infos/infos.component';
 import { ApiDamService } from '../../service/api-dam.service';
-import { Dam } from '../../../types/dam.type';
+import { DamType } from '../../../types/dam.type';
 import { Visit } from '../../../types/visit.type';
 import { Infos } from '../../../types/infos.type';
 import { NgFor } from '@angular/common';
@@ -14,7 +14,7 @@ import { NgFor } from '@angular/common';
   styleUrl: './all-infos.component.scss',
 })
 export class AllInfosComponent implements OnInit {
-  public allDams!: Dam[];
+  public allDams!: DamType[];
   public allVisits!: Visit[];
   public allInfos: Infos[] = [];
   public infos!: Infos[];
