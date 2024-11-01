@@ -15,10 +15,11 @@
     ></i-lucide>
   </div>
   <button
-    *ngFor="let option of options"
-    (click)="sendSelectedOption(option, title)"
+  *ngFor="let all of allOptions"
+    (click)="sendSelectedOption(all.option, title)"
+    [ngClass]="{ selected: all.isSelected }"
     class="dropdown__options"
   >
-    {{ option }}
+    {{ all.option }}
   </button>
 </div>

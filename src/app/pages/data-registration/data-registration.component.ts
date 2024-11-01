@@ -16,7 +16,8 @@ import { NewVisit } from '../../../types/new-visit.type';
 import { Structure } from '../../../types/structure.type';
 import { WaterLevel } from '../../../types/water-level.type';
 import { Forecast } from '../../../types/forecast.type';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ApiDamService } from '../../service/api-dam.service';
 
 @Component({
   selector: 'app-data-registration',
@@ -58,7 +59,11 @@ export class DataRegistrationComponent implements OnInit {
   public currentDate!: string;
   public idDam!: number;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private apiDamService: ApiDamService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     const data = new Date();
@@ -94,6 +99,19 @@ export class DataRegistrationComponent implements OnInit {
       data_visita: this.currentDate,
       status_barragem: 'Ativo',
     };
-    console.log(newVisit);
+
+    if (
+      newVisit.id_barragem &&
+      newVisit.nivel_agua &&
+      newVisit.estrutura &&
+      newVisit.previsao_climatica &&
+      newVisit.data_visita &&
+      newVisit.status_barragem
+    ) {
+      this.apiDamService.postNewVisit(newVisit).subscribe(() => {
+        alert('Visita registrada com sucesso!');
+        this.router.navigate(['/']);
+      });
+    }
   }
 }

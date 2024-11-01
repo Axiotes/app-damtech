@@ -35,9 +35,9 @@
     }
 
     &-arrow {
-        color: $off-white;
-        height: 22px;
-        width: 22px;
+      color: $off-white;
+      height: 22px;
+      width: 22px;
     }
   }
 
@@ -57,4 +57,8 @@
       border: solid 1px $light-green;
     }
   }
+}
+
+.selected {
+  border: solid 1px $light-green;
 }
