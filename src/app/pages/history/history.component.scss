@@ -52,11 +52,13 @@
     height: 700px;
     border-radius: 30px;
     border: solid 1px $medium-black;
+    gap: 20px;
+    padding: 0 20px;
 
     &__name {
       width: 100%;
       @include flex-center;
-      margin-top: 10px;
+      margin: 20px 0;
       gap: 5px;
 
       &-icon {

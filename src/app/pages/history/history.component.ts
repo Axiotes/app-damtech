@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Dam, LucideAngularModule, MoveLeft } from 'lucide-angular';
 import { LucideIconData } from 'lucide-angular/icons/types';
+import { CardHistoryComponent } from "../../components/card-history/card-history.component";
 
 @Component({
   selector: 'app-history',
   standalone: true,
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, CardHistoryComponent],
   templateUrl: './history.component.html',
   styleUrl: './history.component.scss'
 })
