@@ -17,7 +17,7 @@ export const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'infos', component: AllInfosComponent },
-      { path: 'data-registration', component: DataRegistrationComponent },
+      { path: 'data-registration/:id_dam', component: DataRegistrationComponent },
       { path: '', pathMatch: 'full', redirectTo: '/home/admin-users/infos' },
     ],
   },

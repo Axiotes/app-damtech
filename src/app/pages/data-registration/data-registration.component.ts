@@ -16,11 +16,12 @@ import { NewVisit } from '../../../types/new-visit.type';
 import { Structure } from '../../../types/structure.type';
 import { WaterLevel } from '../../../types/water-level.type';
 import { Forecast } from '../../../types/forecast.type';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-data-registration',
   standalone: true,
-  imports: [LucideAngularModule, DropdownComponent, NgFor],
+  imports: [LucideAngularModule, DropdownComponent, NgFor, RouterLink],
   templateUrl: './data-registration.component.html',
   styleUrl: './data-registration.component.scss',
 })
@@ -42,7 +43,7 @@ export class DataRegistrationComponent implements OnInit {
     {
       icon: Droplets,
       title: 'Nível da água',
-      options: ['baixo', 'moderado', 'alto', 'Crítico'],
+      options: ['baixo', 'moderado', 'alto', 'crítico'],
     },
     {
       icon: Wind,
@@ -55,10 +56,17 @@ export class DataRegistrationComponent implements OnInit {
   public optionWaterLevel!: WaterLevel;
   public optionForecast!: Forecast;
   public currentDate!: string;
+  public idDam!: number;
+
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     const data = new Date();
     this.currentDate = data.toLocaleDateString('pt-BR');
+
+    this.route.params.subscribe((params) => {
+      this.idDam = params['id_dam'];
+    });
   }
 
   public receiveSelectedOption(selectedOption: {
@@ -79,7 +87,7 @@ export class DataRegistrationComponent implements OnInit {
 
   public registerVisit(): void {
     const newVisit: NewVisit = {
-      id_barragem: 0,
+      id_barragem: this.idDam,
       nivel_agua: this.optionWaterLevel,
       estrutura: this.optionStructure,
       previsao_climatica: this.optionForecast,

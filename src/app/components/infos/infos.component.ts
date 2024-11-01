@@ -1,16 +1,17 @@
 import { NgClass, NgIf, NgStyle } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { ChevronDown, Dam, History, LucideAngularModule } from 'lucide-angular';
 import { LucideIconData } from 'lucide-angular/icons/types';
 
 @Component({
   selector: 'app-infos',
   standalone: true,
-  imports: [LucideAngularModule, NgStyle, NgIf, NgClass],
+  imports: [LucideAngularModule, NgStyle, NgIf, NgClass, RouterLink],
   templateUrl: './infos.component.html',
   styleUrl: './infos.component.scss',
 })
-export class InfosComponent {
+export class InfosComponent implements OnInit {
   @Input() public name!: string;
   @Input() public city!: string;
   @Input() public state!: string;
@@ -19,6 +20,7 @@ export class InfosComponent {
   @Input() public structure!: string;
   @Input() public forecast!: string;
   @Input() public lastUpdate!: string;
+  @Input() public idDam!: number;
 
   public authenticated: boolean = false;
 
@@ -30,6 +32,13 @@ export class InfosComponent {
   public opacity: number = 0;
   public details: boolean = false;
   public isOpened: boolean = false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    const currentRoute = this.router.url;
+    this.authenticated = currentRoute.split('/')[2] === 'admin-users';
+  }
 
   public toogleHeight(): void {
     this.isOpened = !this.isOpened;
