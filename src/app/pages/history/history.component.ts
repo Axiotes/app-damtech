@@ -5,7 +5,6 @@ import { LucideIconData } from 'lucide-angular/icons/types';
 import { CardHistoryComponent } from '../../components/card-history/card-history.component';
 import { ApiDamService } from '../../service/api-dam.service';
 import { Visit } from '../../../types/visit.type';
-import { Infos } from '../../../types/infos.type';
 import { DamType } from '../../../types/dam.type';
 import { NgFor } from '@angular/common';
 
@@ -20,8 +19,6 @@ export class HistoryComponent implements OnInit {
   public idDam!: number;
   public allDams!: DamType[];
   public allVisits!: Visit[];
-  public allInfos: Infos[] = [];
-  public infos: Infos[] = [];
   public damName!: string;
   public damCity!: string;
   public damState!: string;
@@ -46,7 +43,11 @@ export class HistoryComponent implements OnInit {
         this.apiDamService.getVisits().subscribe({
           next: (res) => {
             this.allVisits = res;
-            this.setInfos();
+            this.allVisits.map((visits) => {
+              this.damName = visits.id_barragem.nome_barragens
+              this.damCity = visits.id_barragem.cidade
+              this.damState = visits.id_barragem.estado
+            })
           },
           error: (error) => {
             console.error(error);
@@ -56,41 +57,6 @@ export class HistoryComponent implements OnInit {
       error: (error) => {
         console.error(error);
       },
-    });
-  }
-
-  public setInfos(): void {
-    this.allDams.forEach((dam) => {
-      const damVisits = this.allVisits.filter(
-        (visit) => visit.id_barragem === dam.id_barragens
-      );
-
-      damVisits.forEach((visit) => {
-        this.allInfos.push({
-          id_visita: visit.id_visita,
-          id_barragem: dam.id_barragens,
-          cidade: dam.cidade,
-          estado: dam.estado,
-          nome_barragens: dam.nome_barragens,
-          nivel_agua: visit.nivel_agua,
-          estrutura: visit.estrutura,
-          previsao_climatica: visit.previsao_climatica,
-          data_visita: visit.data_visita,
-          status_barragem: visit.status_barragem,
-        });
-      });
-    });
-
-    this.allInfos.forEach((info) => {
-      if (info.id_barragem == this.idDam) {
-        this.infos.push(info);
-      }
-    });
-
-    this.infos.map((info) => {
-      this.damName = info.nome_barragens;
-      this.damCity = info.cidade;
-      this.damState = info.estado;
     });
   }
 }

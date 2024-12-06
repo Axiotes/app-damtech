@@ -1,14 +1,14 @@
 <div class="all-infos">
   <app-infos
-    *ngFor="let info of infos"
-    [name]="info.nome_barragens"
-    [city]="info.cidade"
-    [state]="info.estado"
+    *ngFor="let info of allVisits"
+    [name]="info.id_barragem.nome_barragens"
+    [city]="info.id_barragem.cidade"
+    [state]="info.id_barragem.estado"
     [status]="info.status_barragem"
     [waterLevel]="info.nivel_agua"
     [structure]="info.estrutura"
     [forecast]="info.previsao_climatica"
     [lastUpdate]="info.data_visita"
-    [idDam]="info.id_barragem"
+    [idDam]="info.id_barragem.id_barragens"
   ></app-infos>
 </div>

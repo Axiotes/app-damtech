@@ -21,7 +21,7 @@
     </div>
     <div class="history__dam__cards">
       <app-card-history
-        *ngFor="let info of infos"
+        *ngFor="let info of allVisits"
         [date]="info.data_visita"
         [status]="info.status_barragem"
         [waterLevel]="info.nivel_agua"
