@@ -5,7 +5,6 @@ import { LucideIconData } from 'lucide-angular/icons/types';
 import { CardHistoryComponent } from '../../components/card-history/card-history.component';
 import { ApiDamService } from '../../service/api-dam.service';
 import { Visit } from '../../../types/visit.type';
-import { Infos } from '../../../types/infos.type';
 import { DamType } from '../../../types/dam.type';
 import { NgFor } from '@angular/common';
 
@@ -20,8 +19,6 @@ export class HistoryComponent implements OnInit {
   public idDam!: number;
   public allDams!: DamType[];
   public allVisits!: Visit[];
-  public allInfos: Infos[] = [];
-  public infos: Infos[] = [];
   public damName!: string;
   public damCity!: string;
   public damState!: string;
@@ -46,6 +43,11 @@ export class HistoryComponent implements OnInit {
         this.apiDamService.getVisits().subscribe({
           next: (res) => {
             this.allVisits = res;
+            this.allVisits.map((visits) => {
+              this.damName = visits.id_barragem.nome_barragens
+              this.damCity = visits.id_barragem.cidade
+              this.damState = visits.id_barragem.estado
+            })
           },
           error: (error) => {
             console.error(error);

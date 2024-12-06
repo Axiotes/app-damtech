@@ -3,7 +3,6 @@ import { InfosComponent } from '../../components/infos/infos.component';
 import { ApiDamService } from '../../service/api-dam.service';
 import { DamType } from '../../../types/dam.type';
 import { Visit } from '../../../types/visit.type';
-import { Infos } from '../../../types/infos.type';
 import { NgFor } from '@angular/common';
 
 @Component({
