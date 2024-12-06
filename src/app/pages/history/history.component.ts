@@ -46,7 +46,6 @@ export class HistoryComponent implements OnInit {
         this.apiDamService.getVisits().subscribe({
           next: (res) => {
             this.allVisits = res;
-            this.setInfos();
           },
           error: (error) => {
             console.error(error);
@@ -56,41 +55,6 @@ export class HistoryComponent implements OnInit {
       error: (error) => {
         console.error(error);
       },
-    });
-  }
-
-  public setInfos(): void {
-    this.allDams.forEach((dam) => {
-      const damVisits = this.allVisits.filter(
-        (visit) => visit.id_barragem === dam.id_barragens
-      );
-
-      damVisits.forEach((visit) => {
-        this.allInfos.push({
-          id_visita: visit.id_visita,
-          id_barragem: dam.id_barragens,
-          cidade: dam.cidade,
-          estado: dam.estado,
-          nome_barragens: dam.nome_barragens,
-          nivel_agua: visit.nivel_agua,
-          estrutura: visit.estrutura,
-          previsao_climatica: visit.previsao_climatica,
-          data_visita: visit.data_visita,
-          status_barragem: visit.status_barragem,
-        });
-      });
-    });
-
-    this.allInfos.forEach((info) => {
-      if (info.id_barragem == this.idDam) {
-        this.infos.push(info);
-      }
-    });
-
-    this.infos.map((info) => {
-      this.damName = info.nome_barragens;
-      this.damCity = info.cidade;
-      this.damState = info.estado;
     });
   }
 }
